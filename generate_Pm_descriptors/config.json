@@ -1,0 +1,20 @@
+{
+  "name": "openadmet_test_2025",
+  "csv_path": "test.csv",
+  "target_column": "tgt",
+  "smiles_column": "SMILES",
+  "identifier_column": "Name",
+  "target_label": "Target",
+  "output_csv": "openadmet_test_pm.csv",
+  "data_folder": "qsar_data",
+  "nrows": 2300,
+  "environments": [
+    "water",
+    "lipid",
+    "gas"
+  ],
+  "poll_interval": 120.0,
+  "poll_max_wait": 300.0,
+  "dft_functional": "b3lyp-d3",
+  "dft_basis_set": "def2-svp"
+}
