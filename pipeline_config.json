@@ -1,0 +1,24 @@
+{
+  "targets": [
+    "LogD","KSOL","HLM CLint","MLM CLint","Caco-2 Permeability Papp A>B","Caco-2 Permeability Efflux","MPPB","MBPB","MGMB"
+  ],
+  "log_transform_targets": [],
+  "dft_columns": [
+    "Volume", "PSA_RDKit", "NHA", "NHD", "NRB", "FractionCSP3",
+    "PSA_Volume_Ratio", "E_HOMO", "E_LUMO_HOMO_GAP", "Dipole_Moment",
+    "Polarizability", "PSA_DFT", "Partition_Energy_kcal_mol",
+    "Hydration_Energy_kcal_mol"
+  ],
+  "pca_options": [64],
+  "n_replicates": 30,
+  "test_size": 0.3,
+  "use_cuda": true,
+  "checkpoint_dir": "checkpoints",
+  "cache_dir": "cache",
+  "tabpfn_min_r2_threshold": -5.0,
+  "training_data_path": "training_data.csv",
+  "challenge_data_path": "challenge.csv",
+  "external_bbb_path": "logbbb.csv",
+  "external_logd_path": "logd_f.csv",
+  "external_solubility_path": "aqsol_f.csv"
+}
