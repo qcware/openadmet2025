@@ -29,44 +29,19 @@ Chemprop models using the Chemeleon foundation acting on the multi-target set wo
 *Pequqa v7, powered by Promethium and TabPFN with Chemeleon:*  
 TabPFN immediately impressed with getting very high R2 on training and test for most variables. Caco-2, HLM and MLM were still very difficult to describe, but were better with TabPFN than Chemprop. The main variables tuned were linear or log scaling of the targets, and the depth of the PCA reduction of the Chemeleon message passing weights. Pk scaling of MG, MP, MB was also investigated. There are other things that could be tuned but time limitations prevented a more complete investigation. Some ideas for the future are documented at the end of this white paper. The difference between 7.0a and 7.1a is (a) HLM CLint, KSOL, MLM Clint and Caco-2 Perm. Papp A\>B are log-scaled in 7.0a, whereas all variables are in raw form (as downloaded) in 7.1a, and (b) 7.1a uses 70:30 train:test splits for the TabPFN.
 
-Suggestions for future model improvement and development are provided at the end of this white paper.
-
 **What matters to Pequqa?**
 
 To determine whether or not the DFT features were significant to the model performance, a permutation importance feature analysis was performed. The feature analysis was performed on a lower dimensional model (Pequqa v7.0 with PCA-8) to expedite the slow process of the feature analysis. Encouragingly, we find that the DFT contributed descriptors play a significant role in the model performance when assessed with permutation importance sampling.
 
 | Target | Top 5 Features (most important first) |
 | :---- | :---- |
-| Log D | Auxiliary LogD Chemeleon/PC3 Polarizability (DFT) Fraction CSP3 (RDkit) Chemeleon/PC4 |
-| KSOL | Polarizability (DFT) Chemeleon/PC3 Auxiliary LogD Fraction CSP3 (RDkit) Volume (DFT) |
-| HLM CLint | Volume (DFT) Chemeleon (PC4) Chemeleon (PC2) Fraction CSP3 (RDkit) Chemeleon (PC0) |
-| MLM CLint | Volume (DFT) Chemeleon (PC4) Chemeleon (PC2) Fraction CSP3 (RDkit) Chemeleon (PC0) |
-| Caco-2 Perm. Efflux | Partition Energy (DFT) Hydration Energy (DFT) Number of H Donors (RDkit) Auxiliary LogD Chemeleon (PC7) |
-| Caco-2 Perm Papp A\>B | Polarizability (DFT) Number of H Donors (RDkit) Auxiliary LogD Partition Energy (DFT) Chemeleon (PC0) |
-| MPPB | Polarizability (DFT) Fraction CSP3 (RDkit) Auxiliary LogD Chemeleon (PC4) Chemeleon (PC5) |
-| MBPB | Polarizability (DFT) Fraction CSP3 (RDkit) Chemeleon (PC0) Auxiliary LogD Volume (DFT) |
-| MGMB | Polarizability (DFT) Volume (DFT) Auxiliary LogD Fraction CSP3 (RDkit) Chemeleon (PC0) |
-
-**What’s next for Pequqa?**
-
-* Some things to try for refining the models:  
-  * Improved target feature scaling (e.g. further resolve whether using Log or pk scaling or clipping are most appropriate)  
-  * Add white noise to replicate training sets  
-  * Prune training data set to omit outliers (de-noising)  
-  * Chemical identity mapping and stratification (e.g. scaffolds)  
-  * Experiment with n-fold cross-validation and training:test split sizes  
-  * Variance weighted replicate aggregation and/or median vs mean aggregation  
-  * Multitarget Chemprop with Auxiliary features and auxiliary features for quartile/decile ranking for difficult targets  
-* Adding in more interesting features:  
-  * Solicit and incorporate expert-based input on the physicochemical processes and mechanisms underlying each target  
-  * Source other auxiliary data more relevant to the target features  
-  * Iterative model refinement (lower dimensionality PCA, then feed into higher dimensionality models)  
-  * Tune PCA dimensions for different variables (is 64 needed or can we get away with only 8, 16 or 32?)  
-* Getting more Quantum with it:  
-  * Multi-physics conformer search (computationally expensive, current approach only used RDKit and so may not have most representative conformer) and also conformer ensembling  
-  * Incorporate pre-calculated DFT atom charges and bond order information, as well as DFT reactivity indices into the message passing models for chemprop  
-  * Promethium QC Score information for binding to common protein targets  
-* Getting *even more* Quantum with it:  
-  * Quantum Machine Learning 
-
+| Log D | Auxiliary LogD, Chemeleon/PC3 Polarizability (DFT) Fraction CSP3 (RDkit) Chemeleon/PC4 |
+| KSOL | Polarizability (DFT), Chemeleon/PC3, Auxiliary LogD, Fraction CSP3 (RDkit), Volume (DFT) |
+| HLM CLint | Volume (DFT), Chemeleon (PC4), Chemeleon (PC2), Fraction CSP3 (RDkit), Chemeleon (PC0) |
+| MLM CLint | Volume (DFT), Chemeleon (PC4), Chemeleon (PC2), Fraction CSP3 (RDkit), Chemeleon (PC0) |
+| Caco-2 Perm. Efflux | Partition Energy (DFT), Hydration Energy (DFT), Number of H Donors (RDkit), Auxiliary LogD, Chemeleon (PC7) |
+| Caco-2 Perm Papp A\>B | Polarizability (DFT), Number of H Donors (RDkit), Auxiliary LogD, Partition Energy (DFT), Chemeleon (PC0) |
+| MPPB | Polarizability (DFT), Fraction CSP3 (RDkit), Auxiliary LogD, Chemeleon (PC4), Chemeleon (PC5) |
+| MBPB | Polarizability (DFT), Fraction CSP3 (RDkit), Chemeleon (PC0), Auxiliary LogD, Volume (DFT) |
+| MGMB | Polarizability (DFT), Volume (DFT), Auxiliary LogD, Fraction CSP3 (RDkit), Chemeleon (PC0) |
 
