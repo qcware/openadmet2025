@@ -1,6 +1,6 @@
 # Pequqa
 
-**Promethium-Enhanced QUantum Quantitative ADME** 
+**Physics-Enhanced QUantum Quantitative ADME** 
 
 Pequqa was developed in response to the OpenADMET2025 ExpansionRX Leaderboard challenge.   
 [https://huggingface.co/spaces/openadmet/OpenADMET-ExpansionRx-Challenge](https://huggingface.co/spaces/openadmet/OpenADMET-ExpansionRx-Challenge) 
@@ -9,7 +9,7 @@ Pequqa was developed in response to the OpenADMET2025 ExpansionRX Leaderboard ch
 
 1. **DFT Features from Promethium by QC Ware**
 
-Molecules are processed using Promethium’s NVIDIA-accelerated DFT engine ([http://promethium.qcware.com](http://promethium.qcware.com)) via 3D conformation search, followed by geometry optimizations, and single-point calculations performed in various solvation states to generate descriptive features such as partition energy, hydration energy, polarizability, HOMO-LUMO gap etc.
+Molecules are processed using Promethium’s GPU-accelerated DFT engine ([http://promethium.qcware.com](http://promethium.qcware.com)) via 3D conformation search, followed by geometry optimizations, and single-point calculations performed in various solvation states to generate descriptive features such as partition energy, hydration energy, polarizability, HOMO-LUMO gap etc.
 
 This level of throughput is made possible due to the high-level of GPU-acceleration in the electronic structure engine. In most cases the DFT calculations complete in seconds.
 
@@ -29,21 +29,7 @@ Chemprop models using the Chemeleon foundation acting on the multi-target set wo
 *Pequqa v7, powered by Promethium and TabPFN with Chemeleon:*  
 TabPFN immediately impressed with getting very high R2 on training and test for most variables. Caco-2, HLM and MLM were still very difficult to describe, but were better with TabPFN than Chemprop. The main variables tuned were linear or log scaling of the targets, and the depth of the PCA reduction of the Chemeleon message passing weights. Pk scaling of MG, MP, MB was also investigated. There are other things that could be tuned but time limitations prevented a more complete investigation. Some ideas for the future are documented at the end of this white paper. The difference between 7.0a and 7.1a is (a) HLM CLint, KSOL, MLM Clint and Caco-2 Perm. Papp A\>B are log-scaled in 7.0a, whereas all variables are in raw form (as downloaded) in 7.1a, and (b) 7.1a uses 70:30 train:test splits for the TabPFN.
 
-Due to time constraints, the best models obtained were used for the final submission on January 4th. Suggestions for future model improvement and development are provided at the end of this white paper.
-
-The best models for each target are provided below and used for the final submission. The MAE and R2 from the Leaderboard, as well as rank as of Jan 4th 11pm EDT are also provided:
-
-| Target | Method | MAE/R2/Rank (as of 1/4/2026) | Comment |
-| :---- | :---- | :---- | :---- |
-| Log D | Pequqa v6.1  Multitarget Chemprop Chemeleon Foundation DFT descriptors | 0.41 / 0.73 / \~100 | Pequqa v7 TabPFN model performs similarly with R2 around 0.70-0.71 |
-| KSOL | Pequqa v6.1  Multitarget Chemprop Chemeleon Foundation DFT descriptors | 0.38 / 0.55 / \~70 | Pequqa v7 TabPFN model is R2\~0.47  |
-| MLM CLint | Pequqa v6.1  Multitarget Chemprop Chemeleon Foundation DFT descriptors | 0.35 / 0.42 / \~30 | Similar performance to Pequqa v7 TabPFN model R2 \~ 0.38 |
-| HLM CLint | Pequqa v6.1  Multitarget Chemprop Chemeleon Foundation DFT descriptors | 0.35 / 0.31 / \~30 | Similar performance to Pequqa v7 TabPFN R2 \~ 0.28 |
-| Caco-2 Perm. Efflux | Pequqa v7.0a TabPFN Single-target Chemeleon (PCA-64) Auxiliary models DFT descriptors | 0.29 / 0.50 / \~5 | Much better than Pequqa v6 Chemprop models |
-| Caco-2 Perm. Papp A\>B | Pequqa v7.0a TabPFN Single-target Chemeleon (PCA-64) Auxiliary models DFT descriptors | 0.24 / 0.42 / \~40 | Much better than Pequqa v6 Chemprop models |
-| MPPB | Pequqa v6.0 Multitarget Chemprop No log-scaling Chemeleon Foundation DFT descriptors | 0.19 / 0.67 / \~50 | Similar performance from other Pequqa versions |
-| MBPB | Pequqa v7.0 TabPFN Single-target Chemeleon (PCA-128) Auxiliary models DFT descriptors | 0.15 / 0.75 / \~90 | Similar performance from Pequqa v6 multi-target Chemprop |
-| MGPB | Pequqa v6.0 Multitarget Chemprop No log-scaling Chemeleon Foundation DFT descriptors | 0.18 / 0.63 / \~50 | Similar performance to TabPFN based model. |
+Suggestions for future model improvement and development are provided at the end of this white paper.
 
 **What matters to Pequqa?**
 
@@ -71,7 +57,6 @@ To determine whether or not the DFT features were significant to the model perfo
   * Experiment with n-fold cross-validation and training:test split sizes  
   * Variance weighted replicate aggregation and/or median vs mean aggregation  
   * Multitarget Chemprop with Auxiliary features and auxiliary features for quartile/decile ranking for difficult targets  
-  * TabPFN model fine-tuning(?)  
 * Adding in more interesting features:  
   * Solicit and incorporate expert-based input on the physicochemical processes and mechanisms underlying each target  
   * Source other auxiliary data more relevant to the target features  
@@ -82,6 +67,6 @@ To determine whether or not the DFT features were significant to the model perfo
   * Incorporate pre-calculated DFT atom charges and bond order information, as well as DFT reactivity indices into the message passing models for chemprop  
   * Promethium QC Score information for binding to common protein targets  
 * Getting *even more* Quantum with it:  
-  * Quantum Machine Learning implemented on quantum architecture using QC Ware’s quantum computing service
+  * Quantum Machine Learning 
 
 
