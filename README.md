@@ -35,13 +35,13 @@ To determine whether or not the DFT features were significant to the model perfo
 
 | Target | Top 5 Features (most important first) |
 | :---- | :---- |
-| Log D | Auxiliary LogD, Chemeleon/PC3 Polarizability (DFT) Fraction CSP3 (RDkit) Chemeleon/PC4 |
+| Log D | Auxiliary LogD, Chemeleon/PC3, Polarizability (DFT), Fraction CSP3 (RDkit), Chemeleon/PC4 |
 | KSOL | Polarizability (DFT), Chemeleon/PC3, Auxiliary LogD, Fraction CSP3 (RDkit), Volume (DFT) |
-| HLM CLint | Volume (DFT), Chemeleon (PC4), Chemeleon (PC2), Fraction CSP3 (RDkit), Chemeleon (PC0) |
-| MLM CLint | Volume (DFT), Chemeleon (PC4), Chemeleon (PC2), Fraction CSP3 (RDkit), Chemeleon (PC0) |
-| Caco-2 Perm. Efflux | Partition Energy (DFT), Hydration Energy (DFT), Number of H Donors (RDkit), Auxiliary LogD, Chemeleon (PC7) |
-| Caco-2 Perm Papp A\>B | Polarizability (DFT), Number of H Donors (RDkit), Auxiliary LogD, Partition Energy (DFT), Chemeleon (PC0) |
-| MPPB | Polarizability (DFT), Fraction CSP3 (RDkit), Auxiliary LogD, Chemeleon (PC4), Chemeleon (PC5) |
-| MBPB | Polarizability (DFT), Fraction CSP3 (RDkit), Chemeleon (PC0), Auxiliary LogD, Volume (DFT) |
-| MGMB | Polarizability (DFT), Volume (DFT), Auxiliary LogD, Fraction CSP3 (RDkit), Chemeleon (PC0) |
+| HLM CLint | Volume (DFT), Chemeleon/PC4, Chemeleon/PC2, Fraction CSP3 (RDkit), Chemeleon/PC0 |
+| MLM CLint | Volume (DFT), Chemeleon/PC4, Chemeleon/PC2, Fraction CSP3 (RDkit), Chemeleon/PC0 |
+| Caco-2 Perm. Efflux | Partition Energy (DFT), Hydration Energy (DFT), Number of H Donors (RDkit), Auxiliary LogD, Chemeleon/PC7 |
+| Caco-2 Perm Papp A\>B | Polarizability (DFT), Number of H Donors (RDkit), Auxiliary LogD, Partition Energy (DFT), Chemeleon/PC0 |
+| MPPB | Polarizability (DFT), Fraction CSP3 (RDkit), Auxiliary LogD, Chemeleon/PC4, Chemeleon/PC5 |
+| MBPB | Polarizability (DFT), Fraction CSP3 (RDkit), Chemeleon/PC0, Auxiliary LogD, Volume (DFT) |
+| MGMB | Polarizability (DFT), Volume (DFT), Auxiliary LogD, Fraction CSP3 (RDkit), Chemeleon/PC0 |
 
